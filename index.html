@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 1 Year</title>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fff5e6; /* Soft Creamy White Background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #ff6f61; /* Soft Pink */
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .open-letter-btn {
+      background-color: #ffb6c1; /* Soft Pink */
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .open-letter-btn:hover {
+      background-color: #ff8a75; /* Peach */
+    }
+
+    /* Letter Popup */
+    .letter-popup {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff; /* Clean white background for the letter */
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-size: 1.2rem;
+      color: #333;
+      z-index: 1000;
+      background: linear-gradient(135deg, #ffb6c1, #ffe1d6); /* Gradient from soft pink to peach */
+    }
+
+    .letter-popup p {
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .close-btn {
+      background-color: #ffcc99; /* Peach */
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .close-btn:hover {
+      background-color: #ff8a75; /* Soft pink for hover */
+    }
+
+    /* Overlay */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 500;
+    }
+
+    /* Music player styles */
+    audio {
+      display: none;
+    }
+
+    /* Adding soft animations */
+    .letter-popup {
+      animation: popIn 0.5s ease-out;
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Click below to read your love letter</h1>
+    <button class="open-letter-btn" onclick="openLetter()">Open Letter</button>
+
+    <!-- Music player -->
+    <audio id="music" autoplay loop>
+      <source src="./all of me.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Love letter popup -->
+    <div class="letter-popup" id="letter-popup">
+      <p>My Dearest Love,</p>
+      <p>My Favorite Letter S,</p>
+      <p>Happy One year to my other cuz actually bro our telepathy is always at its peak. I swear I couldnt love you more than right now and yet i know I will tomorrow. 365 days and I'm still fucking crazy for you. I can not promise it will be always sunshine and rainbows but I can promise my love loyalty and trust.... I can promise I will be here to listen to ur yapping session rant session sext session normal session tea session what not. I cherish all the little things we do together, and I can't wait for all the beautiful memories we will continue to create. You are my heart, my soulmate, and my best friend MERI BABYDOLL</p>
+      <p>Forever yours, <br>Ishaq Shaikh(Your Princess)</p>
+      <button class="close-btn" onclick="closeLetter()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      // Show the letter popup and overlay
+      document.getElementById('letter-popup').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+
+      // Play the background music
+      document.getElementById('music').play();
+    }
+
+    function closeLetter() {
+      // Hide the letter popup and overlay
+      document.getElementById('letter-popup').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+
+      // Pause the music
+      document.getElementById('music').pause();
+    }
+  </script>
+
+</body>
+</html>
